@@ -1,0 +1,18 @@
+body {
+  background-color: #e5e5e5;
+}
+
+.nav-extended {
+  background-image: url("imagens/capa2.jpg");
+  background-size: cover;
+  background-blend-mode: soft-light;
+}
+
+nav ul li.active,
+.tab a.active {
+  border-bottom: solid 2px #fff;
+}
+
+.nav-header h1 {
+  text-shadow: 2px 2px 8px #000000;
+}
