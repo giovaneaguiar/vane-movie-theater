@@ -3,6 +3,33 @@
 include "cabecalho.php";
 ?>
 
+<?php
+
+//cria filme1
+$filme1 = [
+    "titulo" => "Pump Fiction - Tempo de Vingan�a",
+    "nota" => 9.5,
+    "sinopse" => "Vincent Vega (John Travolta) e Jules Winnfield (Samuel L. Jackson) s�o dois assassinos profissionais que trabalham fazendo cobran�as para Marsellus Wallace (Ving Rhames),
+    um poderosos g�ngster. Vega � for�ado a sair com a garota do chefe, temendo passar dos limites. Enquanto isso, o pugilista Butch Coolidge (Bruce Willis) se mete em
+    apuros por ganhar uma luta que deveria perder.",
+    "poster" => "https://www.themoviedb.org/t/p/original/tptjnB2LDbuUWya9Cx5sQtv5hqb.jpg"
+];
+
+
+//cria filme2
+$filme2 = [
+    "titulo" => "Matrix",
+    "nota" => 9.7,
+    "sinopse" => "Em um futuro próximo, Thomas Anderson (Keanu Reeves), um jovem programador de computador que mora em um cubículo escuro,
+    é atormentado por estranhos pesadelos nos quais encontra-se conectado por cabos e contra sua vontade, em um imenso sistema de computadores do futuro.
+    Em todas essas ocasiões, acorda gritando no exato momento em que os eletrodos estão para penetrar em seu cérebro.",
+    "poster" => "https://www.themoviedb.org/t/p/original/etJHvVsM9aefWWrW23r5BXgVK1F.jpg"
+];
+
+$filmes = [$filme1, $filme2];
+
+?>
+
 <body>
     <nav class="nav-extended brown darken-2">
         <div class="nav-wrapper">
@@ -24,43 +51,28 @@ include "cabecalho.php";
     </nav>
 
     <div class="row">
-        <div class="col s3">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="https://www.themoviedb.org/t/p/original/etJHvVsM9aefWWrW23r5BXgVK1F.jpg">
-                    <a class="btn-floating halfway-fab waves-effect waves-light red">
-                        <i class="material-icons">favorite_border</i>
-                    </a>
-                </div>
-                <div class="card-content">
-                    <p class="valign-wrapper"><i class="material-icons amber-text">star</i> 9.7</p>
-                    <span class="card-title">Matrix</span>
-                    <p>Em um futuro próximo, Thomas Anderson (Keanu Reeves), um jovem programador de computador que mora em um cubículo escuro,
-                        é atormentado por estranhos pesadelos nos quais encontra-se conectado por cabos e contra sua vontade, em um imenso sistema de computadores do futuro.
-                        Em todas essas ocasiões, acorda gritando no exato momento em que os eletrodos estão para penetrar em seu cérebro.</p>
+
+        <?php 
+        //percorre todos filmes criados
+        foreach ($filmes as $filme) : ?>
+            <div class="col s3">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="<?= $filme["poster"] ?>">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red">
+                            <i class="material-icons">favorite_border</i>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <p class="valign-wrapper">
+                            <i class="material-icons amber-text">star</i> <?= $filme["nota"] ?>
+                        </p>
+                        <span class="card-title"><?= $filme["titulo"] ?></span>
+                        <p><?= $filme["sinopse"] ?></p>
+                    </div>
                 </div>
             </div>
-
-        </div>
-
-        <div class="col s3">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="https://www.themoviedb.org/t/p/original/tptjnB2LDbuUWya9Cx5sQtv5hqb.jpg">
-                    <a class="btn-floating halfway-fab waves-effect waves-light red">
-                        <i class="material-icons">favorite_border</i>
-                    </a>
-                </div>
-                <div class="card-content">
-                    <p class="valign-wrapper"><i class="material-icons amber-text">star</i> 9.7</p>
-                    <span class="card-title">Pulp Fiction - Tempo de Violência</span>
-                    <p>Vincent Vega (John Travolta) e Jules Winnfield (Samuel L. Jackson) são dois assassinos profissionais que trabalham fazendo cobranças para Marsellus Wallace (Ving Rhames),
-                        um poderosos gângster. Vega é forçado a sair com a garota do chefe, temendo passar dos limites. Enquanto isso, o pugilista Butch Coolidge (Bruce Willis) se mete em
-                        apuros por ganhar uma luta que deveria perder.</p>
-                </div>
-            </div>
-
-        </div>
+        <?php endforeach ?>
     </div>
 
 </body>
