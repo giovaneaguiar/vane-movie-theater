@@ -5,28 +5,9 @@ include "cabecalho.php";
 
 <?php
 
-//cria filme1
-$filme1 = [
-    "titulo" => "Pump Fiction - Tempo de Vingança",
-    "nota" => 9.5,
-    "sinopse" => "Vincent Vega (John Travolta) e Jules Winnfield (Samuel L. Jackson) são dois assassinos profissionais que trabalham fazendo cobranças para Marsellus Wallace (Ving Rhames),
-    um poderosos gângster. Vega é forçado a sair com a garota do chefe, temendo passar dos limites. Enquanto isso, o pugilista Butch Coolidge (Bruce Willis) se mete em
-    apuros por ganhar uma luta que deveria perder.",
-    "poster" => "https://www.themoviedb.org/t/p/original/tptjnB2LDbuUWya9Cx5sQtv5hqb.jpg"
-];
-
-
-//cria filme2
-$filme2 = [
-    "titulo" => "Matrix",
-    "nota" => 9.7,
-    "sinopse" => "Em um futuro prÃ³ximo, Thomas Anderson (Keanu Reeves), um jovem programador de computador que mora em um cubÃ­culo escuro,
-    Ã© atormentado por estranhos pesadelos nos quais encontra-se conectado por cabos e contra sua vontade, em um imenso sistema de computadores do futuro.
-    Em todas essas ocasiÃµes, acorda gritando no exato momento em que os eletrodos estÃ£o para penetrar em seu cÃ©rebro.",
-    "poster" => "https://www.themoviedb.org/t/p/original/etJHvVsM9aefWWrW23r5BXgVK1F.jpg"
-];
-
-$filmes = [$filme1, $filme2];
+$bd = new SQLite3("vanemovietheater.db");
+$sql = "SELECT * FROM vanemovietheater";
+$filmes = $bd->query($sql);
 
 ?>
 
@@ -52,9 +33,10 @@ $filmes = [$filme1, $filme2];
 
     <div class="row">
 
-        <?php 
+        <?php
+        // fetchArray - pega cada um dos registros retornados pelo SELECT e armaneza em um array temporÃ¡rio
         //percorre todos filmes criados
-        foreach ($filmes as $filme) : ?>
+        while ($filme = $filmes->fetchArray()) : ?>
             <div class="col s3">
                 <div class="card hoverable">
                     <div class="card-image">
@@ -72,7 +54,7 @@ $filmes = [$filme1, $filme2];
                     </div>
                 </div>
             </div>
-        <?php endforeach ?>
+        <?php endwhile ?>
     </div>
 
 </body>
