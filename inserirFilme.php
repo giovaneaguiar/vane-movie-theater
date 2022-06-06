@@ -1,28 +1,25 @@
 <?php
 
-$bd = new SQLite3("vanemovietheater.db");
+session_start();
 
-//escapeString - retirar textos nocivos inseridos no form
-$titulo = $bd->escapeString($_POST["titulo"]);
-$sinopse = $bd->escapeString($_POST["sinopse"]);
-$nota = $bd->escapeString($_POST["nota"]);
-$poster = $bd->escapeString($_POST["poster"]);
+require "./repository/FilmesRepositoryPDO.php";
+require "./model/Filme.php";
 
-$sql = "INSERT INTO vanemovietheater (titulo,poster,sinopse,nota) VALUES (
-    :titulo, :poster, :sinopse, :nota)";
+$filmesRepository = new FilmesRepositoryPDO();
+$filme = new Filme();
 
-$stmt = $bd->prepare($sql);
-$stmt->bindValue(':titulo', $titulo, SQLITE3_TEXT);
-$stmt->bindValue(':poster', $poster, SQLITE3_TEXT);
-$stmt->bindValue(':sinopse', $sinopse, SQLITE3_TEXT);
-$stmt->bindValue(':nota', $nota, SQLITE3_FLOAT);
+$filme->titulo = $_POST["titulo"];
+$filme->sinopse = $_POST["sinopse"];
+$filme->nota = $_POST["nota"];
+$filme->poster = $_POST["poster"];
 
-if ($stmt->execute()) {
-    echo "\nFilmes inseridos com sucesso.\n";
-} else {
-    echo "\nErro ao inserir filmes.". $bd->lastErrorMsg();
+if($filmesRepository->salvar($filme)){
+
+    $_SESSION["msg"] = "Filme cadastrado com sucesso";
 }
 
-header("Location: galeria.php?msg=Filme+cadastrado+com+sucesso");
+else {
+    $_SESSION["msg"] = "Erro ao cadastrar filme";
+}
 
-?>
+header("Location: /");

@@ -23,7 +23,7 @@ include "cabecalho.php";
     </nav>
 
     <div class="row">
-        <form action="inserirFilme.php" method="POST">
+        <form  method="POST">
             <div class="col s6 offset-s3">
                 <div class="card">
                     <div class="card-content">
@@ -67,7 +67,7 @@ include "cabecalho.php";
 
                     </div>
                     <div class="card-action">
-                        <a class="btn waves-effect waves-light grey" href="galeria.php">Cancelar</a>
+                        <a class="btn waves-effect waves-light grey" href="/">Cancelar</a>
                         <button type="submit" class="waves-effect waves-light btn brown">Confirmar</button>
                     </div>
                 </div>
