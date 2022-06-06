@@ -63,4 +63,13 @@ $filmes = $bd->query($sql);
 
 </body>
 
+<?php if (isset($_GET["msg"])) : ?>
+    <script>
+        //mostrar uma mensagem de sucesso ao cadastrar um filme
+        M.toast({
+            html: '<?= $_GET["msg"] ?>'
+        });
+    </script>
+<?php endif ?>
+
 </html>
