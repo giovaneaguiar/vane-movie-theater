@@ -3,7 +3,9 @@
 class Conexao {
 
     public static function criar():PDO {
-        return new PDO("sqlite:vanemovietheater.db");
+     return new PDO("sqlite:db/vanemovietheater.db");
 
     }
 }
+
+?>
