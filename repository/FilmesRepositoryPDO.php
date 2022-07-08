@@ -24,7 +24,7 @@ class FilmesRepositoryPDO
         return $filmesLista;
     }
 
-    public function salvar(Filme $filme): bool
+    public function salvar($filme): bool
     {
 
         $sql = "INSERT INTO vanemovietheater (titulo,poster,sinopse,nota) VALUES (

@@ -23,7 +23,7 @@ include "cabecalho.php";
     </nav>
 
     <div class="row">
-        <form  method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="col s6 offset-s3">
                 <div class="card">
                     <div class="card-content">
@@ -53,17 +53,16 @@ include "cabecalho.php";
                             </div>
                         </div>
 
-                        <form action="#">
-                            <div class="file-field input-field">
-                                <div class="btn brown lighten-2">
-                                    <span>Capa</span>
-                                    <input type="text">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" name="poster">
-                                </div>
+
+                        <div class="file-field input-field">
+                            <div class="btn brown lighten-2">
+                                <span>Capa</span>
+                                <input type="file" name="poster_file">
                             </div>
-                        </form>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" name="poster">
+                            </div>
+                        </div>
 
                     </div>
                     <div class="card-action">
