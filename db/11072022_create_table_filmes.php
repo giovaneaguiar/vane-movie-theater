@@ -17,7 +17,7 @@ $sql = "CREATE TABLE vanemovietheater (
     )
 ";
 
-if ($bd->exec($sql)) {
+/*if ($bd->exec($sql)) {
     echo "\nTabela vanemovietheater criada.\n";
 } else {
     echo "\nErro ao criar tabela vanemovietheater.\n";
@@ -54,3 +54,5 @@ if ($bd->exec($sql)) {
 } else {
     echo "\nErro ao inserir filmes.\n";
 }
+
+*/
