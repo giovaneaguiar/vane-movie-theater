@@ -38,4 +38,20 @@ class FilmesRepositoryPDO
 
         return $stmt->execute();
     }
+
+    public function favoritar($id)
+    {
+
+        $sql = "UPDATE vanemovietheater SET favorito = NOT favorito WHERE id=:id";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        if( $stmt->execute()){
+            return "ok";
+        }
+
+        else {
+            return "error";
+        }
+    }
 }
