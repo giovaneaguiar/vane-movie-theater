@@ -28,9 +28,9 @@ $filmes = $controller->index();
         </div>
         <div class="nav-content">
             <ul class="tabs tabs-transparent brown darken-4">
-                <li class="tab"><a class="active" href="#test1">Todos</a></li>
+                <li class="tab"><a class="active" href="/">Todos</a></li>
                 <li class="tab"><a href="#test2">Assistidos</a></li>
-                <li class="tab"><a href="#test3">Favoritos</a></li>
+                <li class="tab"><a href="/favoritos">Favoritos</a></li>
             </ul>
         </div>
     </nav>
@@ -72,21 +72,23 @@ $filmes = $controller->index();
                 const id = btn.getAttribute("data-id");
                 //requisição ajax
                 fetch(`/favoritar/${id}`)
-                //convertendo para json
-                .then(response => response.json()
-                //se o atributo sucesso for ok, faço a troca do botão
-                .then(response => {
-                    if (response.success === "ok") {
-                        if (btn.querySelector("i").innerHTML === "favorite") {
-                            btn.querySelector("i").innerHTML = "favorite_border";
-                        } else {
-                            btn.querySelector("i").innerHTML = "favorite";
-                        }
-                    }
-                }))
-                .catch(error => {
-                    M.toast({html: 'Erro ao favoritar'});
-                })
+                    //convertendo para json
+                    .then(response => response.json()
+                        //se o atributo sucesso for ok, faço a troca do botão
+                        .then(response => {
+                            if (response.success === "ok") {
+                                if (btn.querySelector("i").innerHTML === "favorite") {
+                                    btn.querySelector("i").innerHTML = "favorite_border";
+                                } else {
+                                    btn.querySelector("i").innerHTML = "favorite";
+                                }
+                            }
+                        }))
+                    .catch(error => {
+                        M.toast({
+                            html: 'Erro ao favoritar'
+                        });
+                    })
 
             });
         });

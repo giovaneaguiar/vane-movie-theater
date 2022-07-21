@@ -6,7 +6,7 @@ include "cabecalho.php";
     <nav class="nav-extended brown darken-2">
         <div class="nav-wrapper">
             <ul id="nav-mobile" class="right">
-                <li><a href="galeria.php">Galeria</a></li>
+                <li><a href="/">Galeria</a></li>
                 <li class="active"><a href="cadastrar.php">Cadastrar</a></li>
             </ul>
         </div>
@@ -15,9 +15,9 @@ include "cabecalho.php";
         </div>
         <div class="nav-content">
             <ul class="tabs tabs-transparent brown darken-4">
-                <li class="tab"><a class="active" href="#test1">Todos</a></li>
+                <li class="tab"><a class="active" href="/">Todos</a></li>
                 <li class="tab"><a href="#test2">Assistidos</a></li>
-                <li class="tab"><a href="#test3">Favoritos</a></li>
+                <li class="tab"><a href="/favoritos">Favoritos</a></li>
             </ul>
         </div>
     </nav>
