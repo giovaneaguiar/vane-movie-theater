@@ -43,6 +43,12 @@ class FilmesController
         return $filmesRepository->listarTodos();
     }
 
+    public function indexFavorito()
+    {
+        $filmesRepository = new FilmesRepositoryPDO();
+        return $filmesRepository->listarFavoritos();
+    }
+
     private function savePoster($file)
     {
         $posterDir = "imagens/posters/";

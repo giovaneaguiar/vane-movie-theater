@@ -24,6 +24,17 @@ class FilmesRepositoryPDO
         return $filmesLista;
     }
 
+    public function listarFavoritos(): array
+    {
+        $filmesFavorito = array();
+        $sql = "SELECT * FROM vanemovietheater WHERE favorito IS NOT 0";
+        $filmes = $this->conexao->query($sql);
+        while ($filme = $filmes->fetchObject()) {
+            array_push($filmesFavorito, $filme);
+        }
+
+        return $filmesFavorito;
+    }
     public function salvar($filme): bool
     {
 
@@ -46,11 +57,9 @@ class FilmesRepositoryPDO
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        if( $stmt->execute()){
+        if ($stmt->execute()) {
             return "ok";
-        }
-
-        else {
+        } else {
             return "error";
         }
     }
@@ -62,11 +71,9 @@ class FilmesRepositoryPDO
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        if( $stmt->execute()){
+        if ($stmt->execute()) {
             return "ok";
-        }
-
-        else {
+        } else {
             return "error";
         }
     }
