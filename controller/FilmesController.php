@@ -63,4 +63,14 @@ class FilmesController
         header('Content-type: application/json');
         echo json_encode($result);
     }
+
+    public function delete($id){
+        $filmesRepository = new FilmesRepositoryPDO();
+        $result = ['success' => $filmesRepository->delete($id)];
+        //o servidor vai responder com json, então mudando a reposta para json.
+        header('Content-type: application/json');
+        echo json_encode($result);
+    }
+
+
 }

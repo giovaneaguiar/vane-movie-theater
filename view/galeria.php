@@ -109,7 +109,7 @@ $filmes = $controller->index();
                     })
                     .catch(error => {
                         M.toast({
-                            html: 'Erro ao favoritar'
+                            html: 'Erro ao apagar filme'
                         })
                     })
             });

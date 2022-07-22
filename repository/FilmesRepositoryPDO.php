@@ -54,4 +54,20 @@ class FilmesRepositoryPDO
             return "error";
         }
     }
+
+    public function delete($id)
+    {
+
+        $sql = "DELETE from vanemovietheater WHERE id=:id";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        if( $stmt->execute()){
+            return "ok";
+        }
+
+        else {
+            return "error";
+        }
+    }
 }
