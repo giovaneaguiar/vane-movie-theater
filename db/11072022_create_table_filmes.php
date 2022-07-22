@@ -13,7 +13,8 @@ $sql = "CREATE TABLE vanemovietheater (
         titulo VARCHAR(200) NOT NULL,
         poster VARCHAR(200),
         sinopse TEXT,
-        nota DECIMAL(2,1)
+        nota DECIMAL(2,1),
+        favorito INT DEFAULT 0
     )
 ";
 
