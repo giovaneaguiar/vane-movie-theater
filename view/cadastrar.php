@@ -16,7 +16,6 @@ include "cabecalho.php";
         <div class="nav-content">
             <ul class="tabs tabs-transparent brown darken-4">
                 <li class="tab"><a class="active" href="/">Todos</a></li>
-                <li class="tab"><a href="#test2">Assistidos</a></li>
                 <li class="tab"><a href="/favoritos">Favoritos</a></li>
             </ul>
         </div>
