@@ -10,10 +10,10 @@ $filmes = $controller->index();
 
 <body>
 
-<nav class="nav-extended brown darken-2">
+    <nav class="nav-extended brown darken-2">
         <div class="nav-wrapper">
             <ul id="nav-mobile" class="right">
-                <li><a href="/">Galeria</a></li>
+                <li class="active"><a href="/">Galeria</a></li>
                 <li><a href="/novo">Cadastrar</a></li>
             </ul>
         </div>
