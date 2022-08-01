@@ -20,5 +20,6 @@ $ cd Vane Movie Theater
 # Execute a aplicação
 $ php -S localhost:8000
 
-# O servidor inciará - acesse <http://localhost:8000>
+# O servidor inciará
+$ acesse <http://localhost:8000>
 
